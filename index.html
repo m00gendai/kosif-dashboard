@@ -1,0 +1,285 @@
+<!-- BEGIN Head -->
+<head>
+<!-- BEGIN Meta Info -->
+    <title>Christine's KOSIF-Dashboard</title>
+<!-- END Meta Info -->
+<!-- BEGIN Stylesheets -->
+    <!-- favicon -->
+    <link 
+        rel="shortcut icon" 
+        href="france.ico" 
+        type="image/x-icon"
+    />  
+    <!-- CSS Font Awesome -->
+    <link 
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" 
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer"
+    />
+    <!-- CSS styles.css -->
+    <link 
+        rel="stylesheet" 
+        href="styles.css"
+    />
+    <!-- CSS dragula -->
+    <link 
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.6.6/dragula.min.css" 
+        integrity="sha512-49xW99xceMN8dDoWaoCaXvuVMjnUctHv/jOlZxzFSMJYhqDZmSF/UnM6pLJjQu0YEBLSdO1DP0er6rUdm8/VqA==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer" 
+    />
+    <!-- CSS Google Font Courgette -->
+    <link 
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Courgette"
+    />
+<!-- END Stylesheets -->
+<!-- BEGIN Scripts -->
+    <!-- script pdfobject -->
+    <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.7/pdfobject.min.js" 
+        integrity="sha512-g16L6hyoieygYYZrtuzScNFXrrbJo/lj9+1AYsw+0CYYYZ6lx5J3x9Yyzsm+D37/7jMIGh0fDqdvyYkNWbuYuA==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer">
+    </script>
+    <!-- script dragula -->
+    <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.6.6/dragula.min.js" 
+        integrity="sha512-MrA7WH8h42LMq8GWxQGmWjrtalBjrfIzCQ+i2EZA26cZ7OBiBd/Uct5S3NP9IBqKx5b+MMNH1PhzTsk6J9nPQQ==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer">
+    </script>
+    <!-- script script.js -->
+    <script 
+        src="script.js">
+    </script>
+    <!-- script axios -->
+    <script 
+        src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js">
+    </script>
+    <!-- script jquery -->
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
+    </script>
+<!-- END Scripts -->
+</head>
+<!-- END Head -->
+<!-- BEGIN Body -->
+<body>
+<!-- BEGIN Section kosifDashboard -->
+	<section id="kosifDashboard">
+<!-- BEGIN TitleBar -->
+		<div id="titleBar">
+			<div id="titleBarTitle">Christine's KOSIF Dashboard</div>
+			<div id="titleBarCalendar">
+                <div id="localTimeDate">
+                    <div class="timeDisplay" id="localeLT"></div>
+                    <div class="timeDisplay" id="year"></div>
+                    <div class="timeDisplay" id="month"></div>
+                    <div class="timeDisplay" id="day"></div>
+                    <div id="hour"></div>
+                    <div id="minute"></div>
+                </div>
+                <div id="UTCTimeDate">
+                    <div class="timeDisplay" id="localeUTC"></div>
+                    <div class="timeDisplay" id="UTCyear"></div>
+                    <div class="timeDisplay" id="UTCmonth"></div>
+                    <div class="timeDisplay" id="UTCday"></div>
+                    <div id="UTChour"></div>
+                    <div id="UTCminute"></div>
+                </div>
+			</div>
+		</div>
+<!-- END TitleBar -->
+<!-- BEGIN Main Window -->
+		<div id="mainWindow">
+<!-- BEGIN Main Container -->
+			<div id="mainContainer">
+<!-- BEGIN Tabs -->
+				<div id="mainContainerTabs">
+					<div class="tab" id="firingTab">
+						<p>Firings</p>
+					</div>
+					<div class="tab" id="workInstructionsTab">
+						<p>Work Instructions PUB</p>
+					</div>
+					<div class="tab" id="dabsTodayTab">
+						<p>DABS Today <i class="fas fa-external-link-alt"></i></p>
+					</div>
+					<div class="tab" id="dabsTomorrowTab">
+						<p>DABS Tomorrow <i class="fas fa-external-link-alt"></i></p>
+					</div>
+				</div>
+<!-- END Tabs -->
+<!-- BEGIN Activities -->
+				<div id="mainContainerActivities">
+                    <div class="activity" id="newActivity">
+						<i class="fas fa-plus"></i>
+                    </div>
+				</div>
+<!-- END Activities -->
+<!-- BEGIN Work Instructions -->
+				<div id="mainContainerWorkInstructions">
+                    <embed 
+                        src="https://skydoc.skyguide.corp/otcs/llisapi.dll/fetch/2000/2096671/42393593/8818099/42427527/42271973/42272218/-/C3WI4016E_Publications.pdf?nodeid=11526425&amp;vernum=88" 
+                        type="application/pdf" 
+                        width="100%" 
+                        height="600px" 
+                    />
+				</div>
+<!-- END Work Instructions -->
+			</div>
+<!-- END Main Container -->
+<!-- BEGIN Events Container -->
+			<div id="eventContainer">
+                <div class="event" id="newEvent">
+					<i class="fas fa-plus"></i>
+				</div>
+				<div class="event" id="eventOMS">
+					<form class ="eventForm" id="formOMS">
+						<input type="checkbox" name="OMS">
+					</form>
+					<div class="eventTime">0730 LT</div>
+					<div class="eventText">OMS</div>
+				</div>
+				<div class="event" id="eventEST">
+					<form class ="eventForm" id="formEST">
+						<input type="checkbox" name="EST">
+					</form>
+					<div class="eventTime">0730 LT</div>
+					<div class="eventText">EST NOTAM</div>
+				</div>
+				<div class="event" id="eventDABS1">
+					<form class ="eventForm" id="formDABS1">
+						<input type="checkbox" name="DABS1">
+					</form>
+					<div class="eventTime">0845 LT</div>
+					<div class="eventText">DABS Morning</div>
+				</div>
+				<div class="event" id="eventDABS2">
+					<form class ="eventForm" id="formDABS2">
+                        <input type="checkbox" name="DABS2">
+                    </form>
+                    <div class="eventTime">1245 LT</div>
+					<div class="eventText">DABS Noon</div>
+				</div>
+				<div class="event" id="eventDABS3">
+                    <form class ="eventForm" id="formDABS3">
+                        <input type="checkbox" name="DABS3">
+                    </form>
+                    <div class="eventTime">1545 LT</div>
+					<div class="eventText">DABS Afternoon</div>
+                </div>
+			</div>
+<!-- END Events Container -->
+		</div>
+<!-- END Main Window -->
+		<article id="newActivityMenu">
+            <div id="newActivityMenuMain">
+                <div id="newActivityMenuMainTitle">
+                    Create New Firing / Area
+                </div>
+                <div id="newActivityMenuMainDetails">
+                    <input class="newActivityMenuMainInput" id="newActivityMenuMainDetailsFiringNumber" type="text" placeholder="Firing Number" pattern="^[0-9]{5}$">
+                    <input class="newActivityMenuMainInput" id="newActivityMenuMainDetailsFiringName" type="text" placeholder="Firing Name">
+                    <input class="newActivityMenuMainInput" id="newActivityMenuMainDetailsAreaNumber" type="text" placeholder="Area Number">
+                    <input class="newActivityMenuMainInput" id="newActivityMenuMainDetailsAreaName" type="text" placeholder="Area Name">
+                </div>
+                <div id="newActivityMenuMainTimes">
+                    <input class="newActivityMenuMainInput" id="newActivityMenuMainTimesFrom" type="text" placeholder="Start Time">
+                    <input class="newActivityMenuMainInput" id="newActivityMenuMainTimesTo" type="text" placeholder="End Time">
+                    <select class="newActivityMenuMainInput" id="newActivityMenuMainTimesLocale">
+                        <option value="lt" selected>LT</option>
+                        <option value="utc">UTC</option>
+                    </select>
+                </div>
+                <div id="newActivityMenuMainButtons">
+                    <button id="newActivityMenuMainButtonsCreate" class="menuMainButton">
+                        Create Activity
+                    </button>
+                    <button id="newActivityMenuMainButtonsCancel" class="menuMainButton">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </article>
+        <article id="editActivityMenu">
+            <div id="editActivityMenuMain">
+                <div id="editActivityMenuMainTitle">
+                    Edit Firing / Area
+                </div>
+                <div id="editActivityMenuMainDetails">
+                    <input class="editActivityMenuMainInput" id="editActivityMenuMainDetailsFiringNumber" type="text" placeholder="Firing Number">
+                    <input class="editActivityMenuMainInput" id="editActivityMenuMainDetailsFiringName" type="text" placeholder="Firing Name">
+                    <input class="editActivityMenuMainInput" id="editActivityMenuMainDetailsAreaNumber" type="text" placeholder="Area Number">
+                    <input class="editActivityMenuMainInput" id="editActivityMenuMainDetailsAreaName" type="text" placeholder="Area Name">
+                </div>
+                <div id="editActivityMenuMainTimes">
+                    <input class="editActivityMenuMainInput" id="editActivityMenuMainTimesFrom" type="text" placeholder="Start Time">
+                    <input class="editActivityMenuMainInput" id="editActivityMenuMainTimesTo" type="text" placeholder="End Time">
+                    <select class="editActivityMenuMainInput" id="editActivityMenuMainTimesLocale">
+                        <option value="lt" selected">LT</option>
+                        <option value="utc">UTC</option>
+                    </select>
+                </div>
+                <div id="editActivityMenuMainButtons">
+                    <button id="editActivityMenuMainButtonsCreate" class="menuMainButton">
+                        Edit Activity
+                    </button>
+                    <button id="editActivityMenuMainButtonsCancel" class="menuMainButton">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </article>
+		<article id="createEventMenu">
+            <div id="createEventMenuMain">
+                <div id="createEventMenuMainTitle">
+                    Create new Event
+                </div>
+                <div id="createEventMenuMainDetails">
+                    <input class="createEventMenuMainInput" id="createEventMenuMainDetailsText" type="text" placeholder="Description">
+                </div>
+                <div id="createEventMenuMainTimes">
+                    <input class="createEventMenuMainInput" id="createEventMenuMainTimesFrom" type="text" placeholder="Start Time in LT">
+                </div>
+                <div id="createEventMenuMainButtons">
+                    <button id="createEventMenuMainButtonsCreate" class="menuMainButton">
+                        Create Event
+                    </button>
+                    <button id="createEventMenuMainButtonsCancel" class="menuMainButton">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </article>
+        <article id="editEventMenu">
+            <div id="editEventMenuMain">
+                <div id="editEventMenuMainTitle">
+                    Edit Event
+                </div>
+                <div id="editEventMenuMainDetails">
+                    <input class="editEventMenuMainInput" id="editEventMenuMainDetailsText" type="text" placeholder="Description">
+                </div>
+                <div id="editEventMenuMainTimes">
+                    <input class="editEventMenuMainInput" id="editEventMenuMainTimesFrom" type="text" placeholder="Start Time">
+                </div>
+                <div id="editEventMenuMainButtons">
+                    <button id="editEventMenuMainButtonsCreate" class="menuMainButton">
+                        Edit Event
+                    </button>
+                    <button id="editEventMenuMainButtonsCancel" class="menuMainButton">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </article>
+	</section>
+<!-- END Section kosifDashboard -->
+</body>
+<!-- END Body -->
