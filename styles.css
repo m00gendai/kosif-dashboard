@@ -1,0 +1,521 @@
+body{
+	position: absolute;
+	margin: 0;
+	padding: 0;
+    background-image: url("hexagon-ga459a33e2_1280.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+	width: 100vw;
+	height: 100vh;
+}
+
+#kosifDashboard{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+    #titleBar{
+        position: relative;
+        width: 100%;
+        height: 10%;
+        font-size: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+    
+    #titleBar::before{
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-image: url("flowers-gf1475819c_640.png");
+        background-position: left;
+        background-size: 30%;
+        background-repeat: no-repeat;
+    }
+        
+
+        #titleBarTitle{
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            font-family: "Courgette";
+            font-weight: bolder;
+            letter-spacing: 2px;
+            word-spacing: 20px; 
+            color: black;
+            text-shadow: 2px 2px white;
+        }
+
+        #titleBarCalendar{
+            position: relative;
+            width: 30%;
+            height: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            font-size: 2rem;
+           
+        }
+            
+            #localTimeDate, #UTCTimeDate{
+                width: 95%;
+                height: 50%;
+                position: relative;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                font-family: monospace;
+            }
+            
+            .timeDisplay{
+                margin: 0 0.5rem 0 0;
+            }
+            
+            #localeLT{
+                background-image: url("switzerland.png");
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                width: 2rem;
+                aspect-ratio: 1/1;
+            }
+            
+            #localeUTC{
+                background-image: url("earth.png");
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                width: 2rem;
+                aspect-ratio: 1/1;
+            }
+            
+            #hour, #utcHour{
+                margin: 0 0 0 1rem;
+            }
+
+    #mainWindow{
+        position: relative;
+        width: 100%;
+        height: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        background-image:url("background-g99c343d44_1920.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        outline: 2px solid white;
+    }
+
+        #mainContainer{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-content: flex-start;
+            flex-wrap: wrap;
+            background: transparent;
+            -webkit-box-shadow: inset 0px 0px 15px 5px #000000; 
+            box-shadow: inset 0px 0px 15px 5px #000000;
+        }
+
+            #mainContainerTabs{
+                position: relative;
+                width: 100%;
+                height: 5%;
+                background: transparent;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+            }
+
+                .tab{
+                    width: auto;
+                    height: 100%;
+                    background: rgba(0,0,0,0.8);
+                    color: white;
+                    font-family: "Arial";
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .tab:nth-child(1){
+                    margin: 0 0 0 1rem;
+                }
+                
+                .tab:nth-child(n+2){
+                    margin: 0 0 0 0.5rem;
+                }
+
+                .tab p {
+                    margin: 0 2rem 0 2rem;
+                }
+
+                .tab:hover{
+                    background: rgba(0,0,0,0.3);
+                    cursor: pointer;
+                }
+
+            #mainContainerActivities{
+                position: relative;
+                width: 100%;
+                height: 95%;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+                justify-content: center;
+                align-content: flex-start;
+            }
+			
+				#newActivity{
+
+                    background-color: #1fd1f9;
+background-image: linear-gradient(315deg, #1fd1f9, 20%, #b621fe, 80%, #1fd1f9);
+
+				}
+			
+				#newActivity i.fas.fa-plus{
+					font-size: 3rem;
+					color: white;
+					border: 2px solid white;
+					border-radius: 25px;
+					padding: 1rem;
+					transition: 0.8s;
+				}
+				
+				#newActivity:hover i.fas.fa-plus{
+					color: #1fd1f9;
+					border: 2px solid #1fd1f9;
+					cursor: pointer;
+				}
+				
+				#newActivity:hover{
+
+					cursor: pointer;
+				}
+            
+                .activity{
+                    position: relative;
+                    background-image: url("texture-1668079_640.jpg");
+                    background-position: center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    aspect-ratio: 1/0.5;
+                    margin: 1rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    font-family: "Arial";
+                    border-radius: 25px;
+                    box-shadow: 0px 0px 15px -5px black;
+                }
+                
+                    .activityTitle{
+                        font-size: 2rem;
+                        width: 100%;
+                        height: 25%;
+                        text-align: center;
+                        margin: 0;
+                        font-weight: bolder;
+                        display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    }
+                    
+                    .activitySubTitle{
+                        font-size: 1.5rem;
+                        width: 100%;
+                        height: 25%;
+                        text-align: center;
+                        display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    }
+                    
+                    .activityTimes{
+                        width: 90%;
+                        height: 50%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-wrap: nowrap;
+                    }
+                    
+                        .activityTimesInner{
+                            font-size: 1rem;
+                            width: 50%;
+                            text-align: center;
+                        }
+                        
+                .deleteActivity{
+                    position: absolute;
+                    top: 5%;
+                    right: 5%;
+                    color: red;
+                }
+				
+				.deleteActivity:hover{
+					cursor:pointer;
+				}
+                
+                .editActivity{
+                    position: absolute;
+                    top: 5%;
+                    left: 5%;
+                    color: green;
+                }
+				
+				.editActivity:hover{
+					cursor:pointer;
+				}
+                
+            #mainContainerWorkInstructions{
+                position: relative;
+                width: 100%;
+                height: 95%;
+                display: none;
+                justify-content: center;
+                align-items: flex-start;
+            }
+
+            #mainContainerWorkInstructions embed{
+                height: 100%;
+            }
+
+        #eventContainer{
+            position: relative;
+            width: 30%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-content: flex-start;
+            flex-wrap: wrap;
+            background: transparent;
+            outline: 2px solid white;
+			overflow-y: scroll;
+
+        }
+
+            .event{
+                position: relative;
+                width: 100%;
+                min-height: 3rem;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                flex-wrap: nowrap;
+                margin: 0.25rem 0 0.25rem 0.25rem;
+                box-shadow: -2px 2px 5px -2px black;
+                font-family: "Arial";
+                border-top-left-radius: 50px;
+                border-bottom-left-radius: 50px;
+            }
+
+            .event:hover{
+                cursor: grab;
+            }
+
+            .event input:focus{
+                outline: none;
+            }
+
+            .event input:hover{
+                cursor:pointer;
+            }
+            
+                .eventform{
+                    width: 10%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 0;
+                }
+                
+                .eventTime{
+                    width: 20%;
+                }
+                
+                .eventText{
+                    width: 70%;
+                }
+                
+                .eventTools{
+                    position: absolute;
+                    right: 0;
+                    width: 10%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-wrap: nowrap;
+                    background: white;
+                    margin: 0 0.5rem 0 0;
+                    padding: 0.5rem;
+                    border-radius: 10px;
+                }
+                
+                    .deleteEvent{
+                        position: relative;
+                        color: red;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+				
+                    .deleteEvent:hover{
+                        cursor:pointer;
+                    }
+                
+                    .editEvent{
+                        position: relative;
+                        color: green;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+				
+                    .editEvent:hover{
+                        cursor:pointer;
+                    }
+                    
+            #newEvent{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: #1fd1f9;
+                    background-image: linear-gradient(to right, #1fd1f9, 80%, #b621fe);
+
+
+
+
+                    transition: 2s;
+				}
+			
+				#newEvent i.fas.fa-plus{
+					font-size: 1.5rem;
+					color: white;
+					border: 2px solid white;
+					border-radius: 10px;
+					padding: 0.25rem;
+					transition: 0.8s;
+				}
+				
+				#newEvent:hover i.fas.fa-plus{
+					color: #b621fe;
+					border: 2px solid #b621fe;
+					cursor: pointer;
+				}
+				
+				#newEvent:hover{
+
+					cursor: pointer;
+				}
+                
+#newActivityMenu, #editActivityMenu, #createEventMenu, #editEventMenu{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+    #newActivityMenuMain, #editActivityMenuMain, #createEventMenuMain, #editEventMenuMain{
+        width: 30vw;
+        aspect-ratio: 1/1;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    
+    #newActivityMenuMain, #editActivityMenuMain{
+        background-image: url("texture-1668079_640.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 25px;
+    }
+    
+    #createEventMenuMain, #editEventMenuMain{
+        background-image: url("watercolor-939819_640.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 25px;
+    }
+    
+        #newActivityMenuMainTitle, #editActivityMenuMainTitle, #createEventMenuMainTitle, #editEventMenuMainTitle{
+            width: 100%;
+            font-size: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Arial";
+        }
+        
+        #newActivityMenuMainDetails, #editActivityMenuMainDetails, #createEventMenuMainDetails, #editEventMenuMainDetails{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        #newActivityMenuMainTimes, #editActivityMenuMainTimes, #createEventMenuMainTimes, #editEventMenuMainTimes{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+            
+            .newActivityMenuMainInput, .editActivityMenuMainInput,  .createEventMenuMainInput, .editEventMenuMainInput{
+                position: relative;
+                width: 45%;
+                font-size: 1.5rem;
+                padding: 0.5rem;
+                background: rgba(255,255,255,0.3);
+                outline: 1px solid white;
+                border: none;
+            }
+            
+            #newActivityMenuMainTimesFrom, #newActivityMenuMainTimesTo, #editActivityMenuMainTimesFrom, #editActivityMenuMainTimesTo, #createEventMenuMainTimesFrom, #editEventMenuMainTimesFrom{
+                width: 35%;
+            }
+            
+            #newActivityMenuMainTimesLocale, #editActivityMenuMainTimesLocale{
+                width: 20%;
+            }
+            
+        #newActivityMenuMainButtons, #editActivityMenuMainButtons, #createEventMenuMainButtons, #editEventMenuMainButtons{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        
+            .menuMainButton{
+                width: 40%;
+                height: 3rem;
+                font-size: 1.5rem;
+
+            }
+
+
