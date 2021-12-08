@@ -836,11 +836,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
         window.open("https://www.skybriefing.com/o/dabs?tomorrow")
     })
     
-    // Show Work Instructions
+    // Show Work Instructions DEACTIVATED DUE TO LINK POLICY
     
-    document.getElementById("workInstructionsTab").addEventListener("click", function(){
-        window.open("https://skydoc.skyguide.corp/otcs/llisapi.dll?func=ll&objaction=overview&objid=11526425")
-    })
+  //  document.getElementById("workInstructionsTab").addEventListener("click", function(){
+  //      window.open("https://skydoc.skyguide.corp/otcs/llisapi.dll?func=ll&objaction=overview&objid=11526425")
+  //  })
 	
 	// Resize Event Container THIS IS NOT PRIORITY
     
