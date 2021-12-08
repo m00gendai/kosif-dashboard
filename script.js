@@ -50,9 +50,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 			document.getElementById("hour").innerHTML   = `${timeDisplayDateHourLT}:`
 		}
 		if(timeDisplayDateMinuteLT < 10){
-			document.getElementById("minute").innerHTML = `0${timeDisplayDateMinuteLT} LT`
+			document.getElementById("minute").innerHTML = `0${timeDisplayDateMinuteLT} LT&nbsp;`
 		} else {
-			document.getElementById("minute").innerHTML = `${timeDisplayDateMinuteLT} LT`
+			document.getElementById("minute").innerHTML = `${timeDisplayDateMinuteLT} LT&nbsp;`
 		}
         
         // UTC
@@ -218,7 +218,19 @@ window.addEventListener('DOMContentLoaded', (event) => {
             
             const newActivityElementTimesLT = document.createElement("div")
             newActivityElementTimesLT.className = "activityTimesInner"
-            newActivityElementTimesLT.innerText = `${parseInt(activityFrom.substring(0,2))+newActivityTimeCheckDifference}${activityFrom.substring(2,4)} - ${parseInt(activityTo.substring(0,2))+newActivityTimeCheckDifference}${activityTo.substring(2,4)} LT`
+            let utcTimeFrom
+            let utcTimeTo
+            if(parseInt(activityFrom.substring(0,2))+newActivityTimeCheckDifference<10){
+                    utcTimeFrom = `0${parseInt(activityFrom.substring(0,2))+newActivityTimeCheckDifference}`
+            } else {
+                utcTimeFrom = parseInt(activityFrom.substring(0,2))+newActivityTimeCheckDifference
+            }
+            if(parseInt(activityTo.substring(0,2))+newActivityTimeCheckDifference<10){
+                utcTimeTo = `0${parseInt(activityTo.substring(0,2))+newActivityTimeCheckDifference}`
+            }else{
+                utcTimeTo = parseInt(activityTo.substring(0,2))+newActivityTimeCheckDifference
+            }
+            newActivityElementTimesLT.innerText = `${utcTimeFrom}${activityFrom.substring(2,4)} - ${utcTimeTo}${activityTo.substring(2,4)} LT`
         
             const newActivityElementTimesUTC = document.createElement("div")
             newActivityElementTimesUTC.className = "activityTimesInner"
@@ -480,6 +492,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                     const eventTimeToCurrentTimeDifference = eventTimeCombinedMinutes - checkEventCurrentCombinedMinutes
                     if(eventTimeToCurrentTimeDifference > 30){
                         document.getElementById("eventContainer").children[i].style.backgroundImage = whiteBackground
+                        document.getElementById("eventContainer").children[i].style.color = "black"
                     }
                     if(eventTimeToCurrentTimeDifference < 31 && eventTimeToCurrentTimeDifference > 20){
                         document.getElementById("eventContainer").children[i].style.backgroundImage = yellowBackground
@@ -595,12 +608,28 @@ window.addEventListener('DOMContentLoaded', (event) => {
         const activityFrom      = document.getElementById("newActivityMenuMainTimesFrom").value
         const activityTo        = document.getElementById("newActivityMenuMainTimesTo").value
         const newActivityLocale = document.getElementById("newActivityMenuMainTimesLocale").value
+        let activityFromE
+        
+        if(newActivityLocale =="utc"){
+            let asdfDate = new Date()
+            let asdfHours = asdfDate.getHours()
+            let asdfUTCHours = asdfDate.getUTCHours()
+            let asdfDifference = asdfHours-asdfUTCHours
+            let asdfDifferenceasdf = parseInt(activityFrom.substring(0,2))+asdfDifference
+            console.log(activityFrom, asdfDifference, asdfDifferenceasdf)
+            let asdfDifferenceasdf2 = parseInt(activityTo.substring(0,2))+asdfDifference
+            if(asdfDifferenceasdf<10){
+                activityFromE = `0${asdfDifferenceasdf}${activityFrom.substring(2,4)}`
+            } else {
+                activityFromE = `${asdfDifferenceasdf}${activityFrom.substring(2,4)}`
+            }
+        }
         
         if(newFiringNumber != ""){
             createNewActivity(newFiringNumber, newFiringText, activityFrom, activityTo, newActivityLocale) 
             storeNewActivity(newFiringNumber, newFiringText, activityFrom, activityTo, newActivityLocale)
-            createNewEvent(newFiringText, activityFrom, false, true) // checked = false, bind = true
-            storeNewEvent(newFiringText, activityFrom, false, newFiringNumber, true) // checked = false, bind = true
+            createNewEvent(newFiringText, activityFromE, false, true) // checked = false, bind = true
+            storeNewEvent(newFiringText, activityFromE, false, newFiringNumber, true) // checked = false, bind = true
         }
         if(newAreaNumber != ""){
             createNewActivity(newAreaNumber, newAreaText, activityFrom, activityTo, newActivityLocale)   
