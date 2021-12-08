@@ -768,7 +768,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     
     const chapters =  [
         {tab: "firingTab", container: "mainContainerActivities", active: true, display: "grid"},
-        {tab: "workInstructionsTab", container: "mainContainerWorkInstructions", active: false, display: "flex"},
+    //    {tab: "workInstructionsTab", container: "mainContainerWorkInstructions", active: false, display: "flex"},
     ]
         
     function toggleViews(){
@@ -834,6 +834,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     document.getElementById("dabsTomorrowTab").addEventListener("click", function(){
         window.open("https://www.skybriefing.com/o/dabs?tomorrow")
+    })
+    
+    // Show Work Instructions
+    
+    document.getElementById("workInstructionsTab").addEventListener("click", function(){
+        window.open("https://skydoc.skyguide.corp/otcs/llisapi.dll?func=ll&objaction=overview&objid=11526425")
     })
 	
 	// Resize Event Container THIS IS NOT PRIORITY
